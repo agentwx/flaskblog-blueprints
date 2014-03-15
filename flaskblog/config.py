@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # -*- coding: utf-8 -*-
 
 """
@@ -17,7 +20,7 @@ DEBUG = True
 PER_PAGE = 10
 
 # configuration mysql
-SQLALCHEMY_DATABASE_URI = "mysql://%s:%s@%s/%s" % ('root', 'root', '127.0.0.1', 'test')
+SQLALCHEMY_DATABASE_URI = "mysql://%s:%s@%s/%s" % ('root', '159357852', '127.0.0.1', 'pythonpub1')
 
 SECRET_KEY = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 USERNAME = 'admin'

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from flask.ext.sqlalchemy import BaseQuery
-from app.page.model import Post
-from myapp import db
+from apps.page.model import Post
+from apps import db
 from datetime import datetime
 
 class CommentQuery(BaseQuery):

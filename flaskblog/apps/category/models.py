@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from flask.ext.sqlalchemy import BaseQuery
-from myapp import db
+from apps import db
 
 
 class CategoryQuery(BaseQuery):

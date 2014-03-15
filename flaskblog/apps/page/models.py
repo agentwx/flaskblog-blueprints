@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 from flask import url_for
 from flask.ext.sqlalchemy import BaseQuery
-from app.tag.model import Tag
-from app.category.model import Category
-from app.comment.model import Comment
-from myapp import db
+from apps.tag.models import Tag
+from apps.category.models import Category
+from apps.comment.models import Comment
+from apps import db
 from datetime import datetime
 from werkzeug import cached_property
 
