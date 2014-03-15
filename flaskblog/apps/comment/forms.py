@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # -*- coding: utf-8 -*-
 """
     form.py
@@ -9,7 +12,7 @@
     :license: BSD, see LICENSE for more details.
 """
 
-from flask.ext.wtf import Form, SubmitField, TextField, required, length, TextAreaField, email, RecaptchaField, HiddenField
+from flask.ext.wtf import Form, SubmitField, TextField, required, length, TextAreaField, email, HiddenField
 
 
 class CommentForm(Form):
@@ -20,5 +23,5 @@ class CommentForm(Form):
     author_url = TextField(u"Url")
     content = TextAreaField(u"Content")
     post_id = TextField()
-    recaptcha = RecaptchaField(u"Copy the words appearing below")
+    #recaptcha = RecaptchaField(u"Copy the words appearing below")
     submit = SubmitField(u"Save")

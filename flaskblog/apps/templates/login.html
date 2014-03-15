@@ -12,14 +12,14 @@
 
 	  <div class=metanav>
   {% if not session.logged_in %}
-    <a href="{{ url_for('login') }}">log in</a>
+    <a href="{{ url_for('admin.login') }}">log in</a>
   {% else %}
-    <a href="{{ url_for('logout') }}">log out</a>
+    <a href="{{ url_for('admin.logout') }}">log out</a>
   {% endif %}
   </div>
 <div id="login">
 
- <form action="{{ url_for('login') }}" method=post>
+ <form action="{{ url_for('admin.login') }}" method=post>
 <p>
 <label for="user_login">用户名<br />
 <input type="text" name="username" id="username" class="input" value="" size="20" tabindex="10" /></label>

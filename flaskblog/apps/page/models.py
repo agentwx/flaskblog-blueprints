@@ -4,7 +4,7 @@ from flask import url_for
 from flask.ext.sqlalchemy import BaseQuery
 from apps.tag.models import Tag
 from apps.category.models import Category
-from apps.comment.models import Comment
+
 from apps import db
 from datetime import datetime
 from werkzeug import cached_property
@@ -92,11 +92,12 @@ class Post(db.Model):
     @cached_property
     def url(self):
         return self._url()
-
+    
     @cached_property
     def comments(self):
+        from apps.comment.models import Comment
         allcomments = Comment.query.filter(Comment.post_id == self.id).all()
         return allcomments
-
+    
 def pageby(obj, pageid, per_page, orderby):
     return obj.order_by(orderby).paginate(pageid, per_page)

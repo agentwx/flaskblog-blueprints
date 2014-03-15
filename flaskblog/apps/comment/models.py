@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from flask.ext.sqlalchemy import BaseQuery
-from apps.page.model import Post
+from apps.page.models import Post
 from apps import db
 from datetime import datetime
 

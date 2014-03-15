@@ -11,7 +11,7 @@ about = Blueprint('about',__name__)
 
 @about.route('/')
 @cache.cached(timeout=300)
-def about():
+def about_1():
     categorys = Category.query.getall()
     hot = Post.query.hottest()[:20]
     new = Post.query.newpost()[:20]

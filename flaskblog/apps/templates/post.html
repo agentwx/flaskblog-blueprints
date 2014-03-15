@@ -205,7 +205,7 @@ One thought on “
 
 <div id="respond">
 	<h3 id="reply-title">发表评论(*为必填项)</h3>
-	<form id="commentform" method="post" action="/addcomment">
+	<form id="commentform" method="post" action="/article/addcomment">
   
     {{ form.hidden_tag() }}
     <p>
@@ -233,9 +233,7 @@ One thought on “
             {{ form.content.label }}
             {{ form.content(rows=8, cols=30)}}
       </p>
-      <p class="comment-form-comment">
-      	{{ form.recaptcha.label }}<br>{{ form.recaptcha }}
-	  </p>
+ 
 
       <p class="form-submit">
         {{ form.submit }}
