@@ -71,7 +71,7 @@ def upload_file():
 
         if file and allowed_file(file.filename):
             filename = str(int(time.time())) + '_' + secure_filename(file.filename)
-            file.save('/home/pythonspace/webapps/pythonpub/htdocs/myblog' + app.config['UPLOAD_FOLDER'] + filename)
+            file.save(app.config['UPLOAD_FOLDER'] + filename)
             data = {'error': 0, 'url': app.config['UPLOAD_FOLDER'] + filename}
             return json.dumps(data)
     return 'FAIL!'

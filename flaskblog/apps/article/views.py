@@ -51,8 +51,8 @@ def addcomment():
     error = 'Sorry, Post Comments Error!'
 
     if form.validate_on_submit():
-        print 1
-        comment = Comment(author_ip=request.environ['HTTP_X_FORWARDED_FOR'])
+        author_ip = request.environ.get('HTTP_X_FORWARDED_FOR') or '127.0.0.1'
+        comment = Comment(author_ip=author_ip)
         form.populate_obj(comment)
         db.session.add(comment)
         post = Post.query.getpost_id(comment.post_id)

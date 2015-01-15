@@ -85,13 +85,6 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<post %r>' % self.post_title
-
-    def _url(self):
-        return url_for('post', name=self.post_name)
-
-    @cached_property
-    def url(self):
-        return self._url()
     
     @cached_property
     def comments(self):
