@@ -1,16 +1,30 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Blueprint,render_template
-from apps import app,cache
+from flask import Blueprint, render_template, request
+from werkzeug.contrib.atom import AtomFeed
+from apps import app, cache
 from apps.category.models import Category
 from apps.page.models import Post
 from apps.tag.models import Tag
 from apps.comment.models import Comment
 from random import shuffle
-index = Blueprint('index',__name__)
+from datetime import datetime
+index = Blueprint('index', __name__)
 per_page = app.config['PER_PAGE']
 
+
+class PostFeed(AtomFeed):
+
+    def add_post(self, post):
+
+        self.add(post.post_title,
+                 '',
+                 content_type="html",
+                 author=u'dan',
+                 url=post.url,
+                 updated=datetime.now(),
+                 published=post.post_create_time)
 
 
 @index.route('/')
@@ -48,3 +62,16 @@ def index_1(pageid=1):
                            last_page=pagination[-1],
                            nav_current="index"
                            )
+
+
+@index.route('/rss_lastnews')
+@cache.cached(timeout=86400)
+def rss_lastnews():
+    feed = PostFeed("pythonpub - lastnews",
+                    feed_url=request.url,
+                    url=request.url_root)
+    new = Post.query.newpost().limit(15)
+    for post in new:
+        feed.add_post(post)
+
+    return feed.get_response()
